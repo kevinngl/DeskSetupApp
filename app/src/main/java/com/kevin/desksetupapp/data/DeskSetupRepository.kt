@@ -1,7 +1,5 @@
 package com.kevin.desksetupapp.data
 
-import com.kevin.desksetupapp.model.DeskSetupData
-import com.kevin.desksetupapp.model.DeskSetupList
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

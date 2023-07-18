@@ -7,10 +7,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import com.kevin.desksetupapp.di.Injection
-import com.kevin.desksetupapp.model.DeskSetupList
-import com.kevin.desksetupapp.ui.common.UiState
-import com.kevin.desksetupapp.ui.components.DeskSetupsCatalog
+import com.kevin.desksetupapp.data.DeskSetupList
+import com.kevin.desksetupapp.data.Injection
+import com.kevin.desksetupapp.ui.navigation.UiState
 import com.kevin.desksetupapp.ui.screen.ViewModelFactory
 
 @Composable
@@ -42,7 +41,7 @@ fun HomeListData(DeskSetupList: List<DeskSetupList>, navigateToDetail: (Long) ->
             items(DeskSetupList) {
                 DeskSetupsCatalog(
                         name = it.DeskSetup.DeskSetup_name,
-                        highlights = it.DeskSetup.DeskSetup_highlights,
+                        description = it.DeskSetup.DeskSetup_description,
                         image = it.DeskSetup.DeskSetup_picture,
                         modifier = Modifier.clickable { navigateToDetail(it.DeskSetup.id) }
                 )

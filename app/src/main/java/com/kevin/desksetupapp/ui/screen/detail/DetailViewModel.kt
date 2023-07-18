@@ -3,8 +3,8 @@ package com.kevin.desksetupapp.ui.screen.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kevin.desksetupapp.data.DeskSetupRepository
-import com.kevin.desksetupapp.model.DeskSetupList
-import com.kevin.desksetupapp.ui.common.UiState
+import com.kevin.desksetupapp.data.DeskSetupList
+import com.kevin.desksetupapp.ui.navigation.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

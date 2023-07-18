@@ -20,8 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.kevin.desksetupapp.di.Injection
-import com.kevin.desksetupapp.ui.common.UiState
+import com.kevin.desksetupapp.data.Injection
+import com.kevin.desksetupapp.ui.navigation.UiState
 import com.kevin.desksetupapp.ui.screen.ViewModelFactory
 import com.kevin.desksetupapp.ui.theme.SubmissionApplicationTheme
 
@@ -41,11 +41,12 @@ fun DetailScreen(
             }
             is UiState.Success -> {
                 val data = it.data
-                DetailLaptop(
+                DetailSetup(
                         DeskSetup_name = data.DeskSetup.DeskSetup_name,
-                        DeskSetup_highlights = data.DeskSetup.DeskSetup_highlights,
-                        DeskSetup_country = data.DeskSetup.DeskSetup_country,
+                        DeskSetup_description = data.DeskSetup.DeskSetup_description,
+                        DeskSetup_category = data.DeskSetup.DeskSetup_category,
                         DeskSetup_picture = data.DeskSetup.DeskSetup_picture,
+                        DeskSetup_date = data.DeskSetup.DeskSetup_date,
                         onBackClick = navigateBack
                 )
             }
@@ -55,11 +56,12 @@ fun DetailScreen(
 }
 
 @Composable
-fun DetailLaptop(
+fun DetailSetup(
         DeskSetup_name: String,
-        DeskSetup_highlights: String,
-        DeskSetup_country: String,
+        DeskSetup_description: String,
+        DeskSetup_category: String,
         DeskSetup_picture: String,
+        DeskSetup_date: String,
         onBackClick: () -> Unit,
         modifier: Modifier = Modifier
 ) {
@@ -78,11 +80,11 @@ fun DetailLaptop(
             Spacer(modifier = Modifier.height(20.dp))
             Text(text = DeskSetup_name, fontWeight = FontWeight.Bold, fontSize = 24.sp)
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = DeskSetup_highlights, fontSize = 16.sp)
+            Text(text = DeskSetup_description, fontSize = 16.sp)
             Spacer(modifier = Modifier.height(20.dp))
-            Text(text = "More Information", fontWeight = FontWeight.Bold, fontSize = 20.sp)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Country : ${DeskSetup_country}")
+            Text(text = "category : ${DeskSetup_category}")
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(text = "date : ${DeskSetup_date}")
             Spacer(modifier = Modifier.height(20.dp))
         }
     }
@@ -90,13 +92,14 @@ fun DetailLaptop(
 
 @Preview(showBackground = true, device = Devices.PIXEL_4)
 @Composable
-fun DetailLaptopPreview() {
+fun DetailSetupPreview() {
     SubmissionApplicationTheme {
-        DetailLaptop(
+        DetailSetup(
                 DeskSetup_name = "DeskSetup name",
-                DeskSetup_highlights = "DeskSetup highlights",
-                DeskSetup_country = "DeskSetup country",
+                DeskSetup_description = "DeskSetup description",
+                DeskSetup_category = "DeskSetup category",
                 DeskSetup_picture = "DeskSetup picture",
+                DeskSetup_date = "DeskSetup date",
                 onBackClick = {}
         )
     }

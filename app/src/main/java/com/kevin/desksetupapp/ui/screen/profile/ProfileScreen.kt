@@ -32,7 +32,7 @@ fun ProfileScreen(modifier: Modifier = Modifier, onBackClick: () -> Unit) {
             Image(
                     modifier =
                             modifier.fillMaxWidth().height(360.dp).padding(16.dp).clip(CircleShape),
-                    painter = painterResource(com.kevin.desksetupapp.R.drawable.profile_pic),
+                    painter = painterResource(com.kevin.desksetupapp.R.drawable.kevin),
                     contentDescription = "profile"
             )
             Text(
